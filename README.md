@@ -7,11 +7,22 @@ Save your test code here.
 
 Get more info: [http://uirecorder.com/](http://uirecorder.com/)
 
-How to run test case?
+Start Selenium server before case running
+================
+node_modules/selenium-standalone/bin/selenium-standalone start
+
+How to run all test cases?
 ================
 
 1. npm install
 2. source run.sh ( Linux|Mac ) or run.bat ( Windows )
+
+How to run specific test case?
+================
+
+1. npm install
+2. source run.sh ( Linux|Mac ) or run.bat ( Windows ) sample/login.spec.js
+
 
 How to dock jenkins?
 ================
