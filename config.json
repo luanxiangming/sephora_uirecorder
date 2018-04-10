@@ -8,7 +8,9 @@
         "url":"https://www.sephora.cn",
         "mobile":"18616762525",
         "password":"123456",
-        "nickname":"Oliver"
+        "nickname":"Oliver",
+        "exclusive":"独家",
+        "giftSet":"套装"
     },
     "recorder": {
         "pathAttrs": "",

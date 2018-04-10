@@ -1,6 +1,8 @@
-![image](https://camo.githubusercontent.com/742fc8b623bbcfd2aa85322862c4db0061bb53fa/68747470733a2f2f7261772e6769746875622e636f6d2f616c69626162612f75697265636f726465722f6d61737465722f6c6f676f2e706e67)
-
+![image](https://camo.githubusercontent.com/742fc8b623bbcfd2aa85322862c4db0061bb53fa/68747470733a2f2f7261772e6769746875622e636f6d2f616c69626162612f75697265636f726465722f6d61737465722f6c6f676f2e706e67) 
 ![image](https://www.sephora.cn/soa/images/sep_top_Logo.png)
+================
+
+
 
 UI Recorder test sample project
 ================
