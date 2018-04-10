@@ -1,0 +1,19 @@
+{
+    "webdriver": {
+        "host": "127.0.0.1",
+        "port": "4444",
+        "browsers": "chrome"
+    },
+    "vars": {
+        "url":"https://www.sephora.cn",
+        "mobile":"18616762525",
+        "password":"123456",
+        "nickname":"Oliver"
+    },
+    "recorder": {
+        "pathAttrs": "",
+        "attrValueBlack": "",
+        "classValueBlack": "",
+        "hideBeforeExpect": ""
+    }
+}
