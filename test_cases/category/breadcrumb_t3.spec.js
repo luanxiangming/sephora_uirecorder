@@ -31,16 +31,14 @@ module.exports = function(){
         });
     });
 
-    it('expect: text, li:nth-child(3) > a.title, equal, {{skinCare}}', async function(){
+    it('mouseMove: 护肤 ( li:nth-child(3) > a.title, 58, 12 )', async function(){
         await driver.sleep(300).wait('li:nth-child(3) > a.title', 30000)
-            .text()
-            .should.not.be.a('error')
-            .should.equal(_(`{{skinCare}}`));
+               .sleep(300).mouseMove(58, 12);
     });
 
-    it('click: 护肤 ( li:nth-child(3) > a.title, 24, 3, 0 )', async function(){
-        await driver.sleep(300).wait('li:nth-child(3) > a.title', 30000)
-               .sleep(300).mouseMove(24, 3).click(0);
+    it('click: 套装 ( ul:nth-child(2) > li:nth-child(1) > div:nth-child(2) > a:nth-child(6), 10, 10, 0 )', async function(){
+        await driver.sleep(300).wait('ul:nth-child(2) > li:nth-child(1) > div:nth-child(2) > a:nth-child(6)', 30000)
+               .sleep(300).mouseMove(10, 10).click(0);
     });
 
     it('switchWindow: 1', async function(){
@@ -53,11 +51,11 @@ module.exports = function(){
         });
     });
 
-    it('expect: displayed, div.categoryNav, equal, true', async function(){
-        await driver.sleep(300).wait('div.categoryNav', 30000)
-            .displayed()
+    it('expect: text, li:nth-child(7) > h1, equal, {{giftSet}}', async function(){
+        await driver.sleep(300).wait('li:nth-child(7) > h1', 30000)
+            .text()
             .should.not.be.a('error')
-            .should.equal(_(true));
+            .should.equal(_(`{{giftSet}}`));
     });
 
     function _(str){

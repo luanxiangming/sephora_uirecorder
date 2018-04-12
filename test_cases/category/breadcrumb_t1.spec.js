@@ -21,43 +21,17 @@ module.exports = function(){
         testVars = self.testVars;
     });
 
-    it('url: {{url}}', async function(){
-        await driver.url(_(`{{url}}`));
-    });
-
-    it('waitBody: ', async function(){
-        await driver.sleep(500).wait('body', 30000).html().then(function(code){
-            isPageError(code).should.be.false;
-        });
-    });
-
-    it('expect: text, li:nth-child(3) > a.title, equal, {{skinCare}}', async function(){
-        await driver.sleep(300).wait('li:nth-child(3) > a.title', 30000)
-            .text()
-            .should.not.be.a('error')
-            .should.equal(_(`{{skinCare}}`));
-    });
-
-    it('click: 护肤 ( li:nth-child(3) > a.title, 24, 3, 0 )', async function(){
-        await driver.sleep(300).wait('li:nth-child(3) > a.title', 30000)
-               .sleep(300).mouseMove(24, 3).click(0);
-    });
+    callSpec('commons/category.mod.js');
 
     it('switchWindow: 1', async function(){
         await driver.sleep(500).switchWindow(1);
     });
 
-    it('waitBody: ', async function(){
-        await driver.sleep(500).wait('body', 30000).html().then(function(code){
-            isPageError(code).should.be.false;
-        });
-    });
-
-    it('expect: displayed, div.categoryNav, equal, true', async function(){
-        await driver.sleep(300).wait('div.categoryNav', 30000)
-            .displayed()
+    it('expect: text, h1, equal, {{skinCare}}', async function(){
+        await driver.sleep(300).wait('h1', 30000)
+            .text()
             .should.not.be.a('error')
-            .should.equal(_(true));
+            .should.equal(_(`{{skinCare}}`));
     });
 
     function _(str){
