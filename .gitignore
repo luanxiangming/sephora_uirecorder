@@ -5,7 +5,7 @@ node_modules
 npm-debug.log
 uirecorder.log
 reports
-diffbase/**
+diffbase/*
 screenshots
 screenshots/**/*.png
 screenshots/**/*.html
