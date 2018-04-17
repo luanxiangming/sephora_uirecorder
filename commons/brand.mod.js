@@ -26,21 +26,21 @@ module.exports = function(){
     });
 
     it('waitBody: ', async function(){
-        await driver.sleep(500).wait('body', 300000).html().then(function(code){
+        await driver.sleep(500).wait('body', 30000).html().then(function(code){
             isPageError(code).should.be.false;
         });
     });
 
     it('expect: displayed, ul.navigation-info-content-menu-Row, equal, true', async function(){
-        await driver.sleep(300).wait('ul.navigation-info-content-menu-Row', 300000)
+        await driver.sleep(300).wait('ul.navigation-info-content-menu-Row', 30000)
             .displayed()
             .should.not.be.a('error')
             .should.equal(_(true));
     });
 
-    it('click: 全部品牌 ( ul.navigation-info-content-menu-Row > li.last > a:nth-child(1), 34, 8, 0 )', async function(){
-        await driver.sleep(300).wait('ul.navigation-info-content-menu-Row > li.last > a:nth-child(1)', 300000)
-               .sleep(300).mouseMove(34, 8).click(0);
+    it('click: 全部品牌 ( ul.navigation-info-content-menu-Row > li.last > a:nth-child(1), 34, 7, 0 )', async function(){
+        await driver.sleep(300).wait('ul.navigation-info-content-menu-Row > li.last > a:nth-child(1)', 30000)
+               .sleep(300).mouseMove(34, 7).click(0);
     });
 
     it('switchWindow: 1', async function(){
@@ -48,13 +48,13 @@ module.exports = function(){
     });
 
     it('waitBody: ', async function(){
-        await driver.sleep(500).wait('body', 300000).html().then(function(code){
+        await driver.sleep(500).wait('body', 30000).html().then(function(code){
             isPageError(code).should.be.false;
         });
     });
 
     it('expect: displayed, div.Alphabet > ul.alphabets, equal, true', async function(){
-        await driver.sleep(300).wait('div.Alphabet > ul.alphabets', 300000)
+        await driver.sleep(300).wait('div.Alphabet > ul.alphabets', 30000)
             .displayed()
             .should.not.be.a('error')
             .should.equal(_(true));
@@ -144,8 +144,8 @@ function runThisSpec(){
                 }
                 self.driver = driver.session(sessionConfig).maximize().config({
                     pageloadTimeout: 300000, // page onload timeout
-                    scriptTimeout: 50000, // sync script timeout
-                    asyncScriptTimeout: 100000 // async script timeout
+                    scriptTimeout: 5000, // sync script timeout
+                    asyncScriptTimeout: 10000 // async script timeout
                 });
                 self.testVars = testVars;
                 let casePath = path.dirname(caseName);
