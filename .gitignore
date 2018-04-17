@@ -4,10 +4,4 @@ package-lock.json
 node_modules
 npm-debug.log
 uirecorder.log
-reports
-diffbase/*
-screenshots
-screenshots/**/*.png
-screenshots/**/*.html
-screenshots/**/*.json
-screenshots/**/*.cookie
+
