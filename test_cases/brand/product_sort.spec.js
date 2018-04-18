@@ -21,15 +21,15 @@ module.exports = function(){
         testVars = self.testVars;
     });
 
-    callSpec('commons/brand.mod.js');
+    callSpec('commons/brand_product.mod.js');
 
     it('switchWindow: 1', async function(){
         await driver.sleep(500).switchWindow(1);
     });
 
-    it('click: ALGENIST ( div:nth-child(1) > div.Brands > div:nth-child(3) > a.ImgContainer > img, 53, 21, 0 )', async function(){
-        await driver.sleep(300).wait('div:nth-child(1) > div.Brands > div:nth-child(3) > a.NameZone > p:nth-child(1)', 30000)
-               .sleep(300).mouseMove(122, 12).click(0);
+    it('click: 销量 ( div.sort-product > div.sort-product-inner > div.layout > div.sort-product-left > span:nth-child(2) > span:nth-child(1), 21, 3, 0 )', async function(){
+        await driver.sleep(300).wait('div.sort-product > div.sort-product-inner > div.layout > div.sort-product-left > span:nth-child(2) > span:nth-child(1)', 30000)
+               .sleep(300).mouseMove(21, 3).click(0);
     });
 
     it('waitBody: ', async function(){
@@ -38,24 +38,101 @@ module.exports = function(){
         });
     });
 
-    it('expect: imgdiff, div > img, below, 5', async function(){
-        let self = this;
-        let imgBasePath = self.diffbasePath + '/' + self.caseName + '_' + self.stepId + '.png';
-        let imgNewPath = self.screenshotPath + '/' + self.caseName + '_' + self.stepId + '_new.png';
-        let imgDiffPath = self.screenshotPath + '/' + self.caseName + '_' + self.stepId + '_diff.png';
-        let elemshot = await driver.sleep(300).getScreenshot({
-            elem: 'div > img',
-            filename: imgNewPath
+    it('expect: attr, div.sort-product > div.sort-product-inner > div.layout > div.sort-product-left > span.sort-way-bg,class, equal, sort-way sort-way-bg', async function(){
+        await driver.sleep(300).wait('div.sort-product > div.sort-product-inner > div.layout > div.sort-product-left > span.sort-way-bg', 30000)
+            .attr('class')
+            .should.not.be.a('error')
+            .should.equal(_(`sort-way sort-way-bg`));
+    });
+
+    it('click: 新品 ( div.sort-product > div.sort-product-inner > div.layout > div.sort-product-left > span:nth-child(3) > span:nth-child(1), 6, 3, 0 )', async function(){
+        await driver.sleep(300).wait('div.sort-product > div.sort-product-inner > div.layout > div.sort-product-left > span:nth-child(3) > span:nth-child(1)', 30000)
+               .sleep(300).mouseMove(6, 3).click(0);
+    });
+
+    it('waitBody: ', async function(){
+        await driver.sleep(500).wait('body', 30000).html().then(function(code){
+            isPageError(code).should.be.false;
         });
-        elemshot = new Buffer(elemshot, 'base64');
-        if(!fs.existsSync(imgBasePath) || process.env['npm_config_rebuilddiff']){
-            fs.writeFileSync(imgBasePath, elemshot);
-        }
-        let diff = resemble(elemshot).compareTo(imgBasePath).ignoreColors();
-        let diffResult = await new Promise((resolve) => diff.onComplete(resolve));
-        diffResult.getDiffImage().pack().pipe(fs.createWriteStream(imgDiffPath));
-        diffResult.rawMisMatchPercentage
-            .should.below(5);
+    });
+
+    it('expect: attr, div.sort-product > div.sort-product-inner > div.layout > div.sort-product-left > span.sort-way-bg,class, equal, sort-way sort-way-bg', async function(){
+        await driver.sleep(300).wait('div.sort-product > div.sort-product-inner > div.layout > div.sort-product-left > span.sort-way-bg', 30000)
+            .attr('class')
+            .should.not.be.a('error')
+            .should.equal(_(`sort-way sort-way-bg`));
+    });
+
+    it('click: 人气 ( div.sort-product > div.sort-product-inner > div.layout > div.sort-product-left > span:nth-child(4), 54, 6, 0 )', async function(){
+        await driver.sleep(300).wait('div.sort-product > div.sort-product-inner > div.layout > div.sort-product-left > span:nth-child(4)', 30000)
+               .sleep(300).mouseMove(54, 6).click(0);
+    });
+
+    it('waitBody: ', async function(){
+        await driver.sleep(500).wait('body', 30000).html().then(function(code){
+            isPageError(code).should.be.false;
+        });
+    });
+
+    it('expect: attr, div.sort-product > div.sort-product-inner > div.layout > div.sort-product-left > span.sort-way-bg,class, equal, sort-way sort-way-bg', async function(){
+        await driver.sleep(300).wait('div.sort-product > div.sort-product-inner > div.layout > div.sort-product-left > span.sort-way-bg', 30000)
+            .attr('class')
+            .should.not.be.a('error')
+            .should.equal(_(`sort-way sort-way-bg`));
+    });
+
+    it('click: 价格 ( div.sort-product > div.sort-product-inner > div.layout > div.sort-product-left > span:nth-child(5) > span:nth-child(1), 18, 9, 0 )', async function(){
+        await driver.sleep(300).wait('div.sort-product > div.sort-product-inner > div.layout > div.sort-product-left > span:nth-child(5) > span:nth-child(1)', 30000)
+               .sleep(300).mouseMove(18, 9).click(0);
+    });
+
+    it('waitBody: ', async function(){
+        await driver.sleep(500).wait('body', 30000).html().then(function(code){
+            isPageError(code).should.be.false;
+        });
+    });
+
+    it('expect: attr, div.sort-product > div.sort-product-inner > div.layout > div.sort-product-left > span.sort-way-bg,class, equal, sort-way sort-way-bg', async function(){
+        await driver.sleep(300).wait('div.sort-product > div.sort-product-inner > div.layout > div.sort-product-left > span.sort-way-bg', 30000)
+            .attr('class')
+            .should.not.be.a('error')
+            .should.equal(_(`sort-way sort-way-bg`));
+    });
+
+    it('click: 价格 ( div.sort-product > div.sort-product-inner > div.layout > div.sort-product-left > span.sort-way-bg > span:nth-child(1), 24, 7, 0 )', async function(){
+        await driver.sleep(300).wait('div.sort-product > div.sort-product-inner > div.layout > div.sort-product-left > span.sort-way-bg > span:nth-child(1)', 30000)
+               .sleep(300).mouseMove(24, 7).click(0);
+    });
+
+    it('waitBody: ', async function(){
+        await driver.sleep(500).wait('body', 30000).html().then(function(code){
+            isPageError(code).should.be.false;
+        });
+    });
+
+    it('expect: attr, div.sort-product > div.sort-product-inner > div.layout > div.sort-product-left > span.sort-way-bg,class, equal, sort-way sort-way-bg', async function(){
+        await driver.sleep(300).wait('div.sort-product > div.sort-product-inner > div.layout > div.sort-product-left > span.sort-way-bg', 30000)
+            .attr('class')
+            .should.not.be.a('error')
+            .should.equal(_(`sort-way sort-way-bg`));
+    });
+
+    it('click: 综合 ( div.sort-product > div.sort-product-inner > div.layout > div.sort-product-left > span:nth-child(1) > span:nth-child(1), 14, 3, 0 )', async function(){
+        await driver.sleep(300).wait('div.sort-product > div.sort-product-inner > div.layout > div.sort-product-left > span:nth-child(1) > span:nth-child(1)', 30000)
+               .sleep(300).mouseMove(14, 3).click(0);
+    });
+
+    it('waitBody: ', async function(){
+        await driver.sleep(500).wait('body', 30000).html().then(function(code){
+            isPageError(code).should.be.false;
+        });
+    });
+
+    it('expect: attr, div.sort-product > div.sort-product-inner > div.layout > div.sort-product-left > span.sort-way-bg,class, equal, sort-way sort-way-bg', async function(){
+        await driver.sleep(300).wait('div.sort-product > div.sort-product-inner > div.layout > div.sort-product-left > span.sort-way-bg', 30000)
+            .attr('class')
+            .should.not.be.a('error')
+            .should.equal(_(`sort-way sort-way-bg`));
     });
 
     function _(str){
