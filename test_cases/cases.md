@@ -2,6 +2,9 @@
 
 File | Description |
 :--- | :---------- |
+login/mobile | 首页-登陆页面-手机登陆-首页
+login/qq | 首页-登陆页面-qq登陆-首页
+login/weibo | 首页-登陆页面-微博登陆-首页
 category/breadcrumb_t1 | 首页-护肤一级分类
 category/breadcrumb_t2 | 首页-面膜二级分类
 category/breadcrumb_t3 | 首页-套装三级分类
@@ -15,5 +18,5 @@ myAccount/profile_edit | 首页-登陆-我的丝芙兰-编辑个人资料-修改
 pdp/add_cart | 首页-分类页(护肤)-PDP页面-加购物车-登陆-PDP页面
 exclusive | 首页-独家发售
 gift_set | 首页-礼物套装
-home | 首页-登陆
+
 

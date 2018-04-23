@@ -8,12 +8,18 @@
         "url": "https://www.sephora.cn",
         "mobile": "18616762525",
         "password": "123456",
-        "nickname": "Oliver",
+        "nickname": "手机微博登陆",
         "exclusive": "独家",
         "giftSet": "套装",
         "skinCare": "护肤",
         "mask": "面膜",
-        "title": "我的订单"
+        "title": "我的订单",
+        "qq_id": "82740301",
+        "qq_pwd": "20011205",
+        "qq_nick": "QQ登陆",
+        "wb_id": "18616762525",
+        "wb_pwd": "SYS2010health",
+        "wb_nick": "手机微博登陆"
     },
     "recorder": {
         "pathAttrs": "",

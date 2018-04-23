@@ -3,7 +3,8 @@
 File | Description |
 :--- | :---------- |
 commons/center.mod.js | 关闭首页活动banner后停在首页
-commons/home.mod.js |  登陆后停在首页
+commons/login.mod.js |  首页-登陆界面
+commons/home.mod.js |  (手机)登陆后停在首页
 commons/profile.mod.js | 登陆后-我的丝芙兰
 commons/category.mod.js | 首页-分类页(护肤), 不含登陆
 commons/pdp.mod.js | 分类页(护肤)-PDP, 不含登陆
