@@ -21,7 +21,7 @@ module.exports = function(){
         testVars = self.testVars;
     });
 
-    callSpec('commons/login.mod.js');
+    callSpec('commons/home.mod.js');
 
     it('click: 我的丝芙兰 ( span:nth-child(1) > a.top-content-right-content, 10, 9, 0 )', async function(){
         await driver.sleep(300).wait('span:nth-child(1) > a.top-content-right-content', 30000)

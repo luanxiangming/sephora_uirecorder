@@ -21,7 +21,7 @@ module.exports = function(){
         testVars = self.testVars;
     });
 
-    callSpec('commons/login.mod.js');
+    callSpec('commons/home.mod.js');
 
     it('expect: displayed, ul.navigation-info-content-menu-Row, equal, true', async function(){
         await driver.sleep(300).wait('ul.navigation-info-content-menu-Row', 30000)
