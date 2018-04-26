@@ -23,26 +23,26 @@ module.exports = function(){
 
     callSpec('commons/category.mod.js');
 
-    it('switchWindow: 1', async function(){
+    it('切换窗口', async function(){
         await driver.sleep(500).switchWindow(1);
     });
 
-    it('click: div.HotNow > div.cate_prod_cont > ul.cate_prod > li:nth-child(1) > div.p_cont > div.p_img > a:nth-child(1) > img, 106, 64, 0', async function(){
+    it('点击：热销排行首个商品', async function(){
         await driver.sleep(300).wait('div.HotNow > div.cate_prod_cont > ul.cate_prod > li:nth-child(1) > div.p_cont > div.p_img > a:nth-child(1) > img', 30000)
                .sleep(300).mouseMove(106, 64).click(0);
     });
 
-    it('switchWindow: 2', async function(){
+    it('切换窗口', async function(){
         await driver.sleep(500).switchWindow(2);
     });
 
-    it('waitBody: ', async function(){
+    it('等待页面加载... ', async function(){
         await driver.sleep(500).wait('body', 30000).html().then(function(code){
             isPageError(code).should.be.false;
         });
     });
 
-    it('expect: displayed, div.mainCenter > div:nth-child(6), equal, true', async function(){
+    it('断言：PDP中间区域显示', async function(){
         await driver.sleep(300).wait('div.mainCenter > div:nth-child(6)', 30000)
             .displayed()
             .should.not.be.a('error')

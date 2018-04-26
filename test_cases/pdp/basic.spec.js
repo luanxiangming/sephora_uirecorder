@@ -207,7 +207,7 @@ function runThisSpec(){
                     sessionConfig.hosts = hosts;
                 }
                 self.driver = driver.session(sessionConfig).maximize().config({
-                    pageloadTimeout: 30000, // page onload timeout
+                    pageloadTimeout: 300000, // page onload timeout
                     scriptTimeout: 5000, // sync script timeout
                     asyncScriptTimeout: 10000 // async script timeout
                 });

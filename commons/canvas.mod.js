@@ -21,43 +21,26 @@ module.exports = function(){
         testVars = self.testVars;
     });
 
-    it('打开url: {{url}}', async function(){
+    it('url: {{url}}', async function(){
         await driver.url(_(`{{url}}`));
     });
 
-    it('等待页面加载... ', async function(){
+    it('waitBody: ', async function(){
         await driver.sleep(500).wait('body', 30000).html().then(function(code){
             isPageError(code).should.be.false;
         });
     });
 
-    it('断言: 一级分类{{skinCare}}', async function(){
-        await driver.sleep(300).wait('li:nth-child(3) > a.title', 30000)
-            .text()
-            .should.not.be.a('error')
-            .should.equal(_(`{{skinCare}}`));
-    });
-
-    it('点击: 护肤', async function(){
-        await driver.sleep(300).wait('li:nth-child(3) > a.title', 30000)
-               .sleep(300).mouseMove(24, 3).click(0);
-    });
-
-    it('切换窗口', async function(){
-        await driver.sleep(500).switchWindow(1);
-    });
-
-    it('等待页面加载... ', async function(){
-        await driver.sleep(500).wait('body', 30000).html().then(function(code){
-            isPageError(code).should.be.false;
-        });
-    });
-
-    it('断言：面包屑导航显示', async function(){
-        await driver.sleep(300).wait('div.categoryNav', 30000)
+    it('expect: displayed, canvas, equal, true', async function(){
+        await driver.sleep(300).wait('canvas', 30000)
             .displayed()
             .should.not.be.a('error')
             .should.equal(_(true));
+    });
+
+    it('click: canvas, 875, 169, 0', async function(){
+        await driver.sleep(300).wait('canvas', 30000)
+               .sleep(300).mouseMove(875, 169).click(0);
     });
 
     function _(str){

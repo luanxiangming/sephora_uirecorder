@@ -23,20 +23,20 @@ module.exports = function(){
 
     callSpec('commons/pdp.mod.js');
 
-    it('switchWindow: 2', async function(){
+    it('切换窗口', async function(){
         await driver.sleep(500).switchWindow(2);
     });
 
-    it('click: 配送信息 ( div.nav > ul > li:nth-child(4), 43, 3, 0 )', async function(){
+    it('点击: 配送信息', async function(){
         await driver.sleep(300).wait('div.nav > ul > li:nth-child(4)', 30000)
                .sleep(300).mouseMove(43, 3).click(0);
     });
 
-    it('scrollTo: 0, 2035', async function(){
+    it('页面滚动至: 0, 2035', async function(){
         await driver.scrollTo(0, 2035);
     });
 
-    it('expect: imgdiff, div.payLogistic > div:nth-child(3), below, 5', async function(){
+    it('断言：支付及配送 图片比对误差 < 5%', async function(){
         let self = this;
         let imgBasePath = self.diffbasePath + '/' + self.caseName + '_' + self.stepId + '.png';
         let imgNewPath = self.screenshotPath + '/' + self.caseName + '_' + self.stepId + '_new.png';
@@ -56,11 +56,11 @@ module.exports = function(){
             .should.below(5);
     });
 
-    it('scrollTo: 0, 2426', async function(){
+    it('页面滚动至: 0, 2426', async function(){
         await driver.scrollTo(0, 2426);
     });
 
-    it('expect: imgdiff, div.price > div:nth-child(3), below, 5', async function(){
+    it('断言：价格声明 图片比对误差 < 5%', async function(){
         let self = this;
         let imgBasePath = self.diffbasePath + '/' + self.caseName + '_' + self.stepId + '.png';
         let imgNewPath = self.screenshotPath + '/' + self.caseName + '_' + self.stepId + '_new.png';
@@ -80,11 +80,11 @@ module.exports = function(){
             .should.below(5);
     });
 
-    it('scrollTo: 0, 2719', async function(){
+    it('页面滚动至: 0, 2719', async function(){
         await driver.scrollTo(0, 2719);
     });
 
-    it('expect: imgdiff, div.return > div:nth-child(3), below, 5', async function(){
+    it('断言：退换货规定 图片比对误差 < 5%', async function(){
         let self = this;
         let imgBasePath = self.diffbasePath + '/' + self.caseName + '_' + self.stepId + '.png';
         let imgNewPath = self.screenshotPath + '/' + self.caseName + '_' + self.stepId + '_new.png';
@@ -187,7 +187,7 @@ function runThisSpec(){
                     sessionConfig.hosts = hosts;
                 }
                 self.driver = driver.session(sessionConfig).maximize().config({
-                    pageloadTimeout: 30000, // page onload timeout
+                    pageloadTimeout: 300000, // page onload timeout
                     scriptTimeout: 5000, // sync script timeout
                     asyncScriptTimeout: 10000 // async script timeout
                 });
