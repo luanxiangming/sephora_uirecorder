@@ -21,6 +21,8 @@ module.exports = function(){
         testVars = self.testVars;
     });
 
+    callSpec('commons/center.mod.js');
+
     it('url: {{url}}', async function(){
         await driver.url(_(`{{url}}`));
     });

@@ -21,8 +21,15 @@ module.exports = function(){
         testVars = self.testVars;
     });
 
-    it('url: {{url}}', async function(){
-        await driver.url(_(`{{url}}`));
+    callSpec('commons/home.mod.js');
+
+    it('click: 香水 ( li:nth-child(5) > a.title, 21, 7, 0 )', async function(){
+        await driver.sleep(300).wait('li:nth-child(5) > a.title', 30000)
+               .sleep(300).mouseMove(21, 7).click(0);
+    });
+
+    it('switchWindow: 1', async function(){
+        await driver.sleep(500).switchWindow(1);
     });
 
     it('waitBody: ', async function(){
@@ -31,20 +38,34 @@ module.exports = function(){
         });
     });
 
-    it('expect: displayed, div.center > a:nth-child(1) > img, equal, true', async function(){
-        await driver.sleep(300).wait('div.center > a:nth-child(1) > img', 30000)
+    it('expect: displayed, div.categoryNav, equal, true', async function(){
+        await driver.sleep(300).wait('div.categoryNav', 30000)
             .displayed()
             .should.not.be.a('error')
             .should.equal(_(true));
     });
 
-    it('click: div.closeButton, 18, 10, 0', async function(){
-        await driver.sleep(300).wait('div.closeButton', 30000)
-               .sleep(300).mouseMove(18, 10).click(0);
+    it('scrollTo: 0, 95', async function(){
+        await driver.scrollTo(0, 95);
     });
 
-    it('expect: displayed, div.search-info-content-logo > a > img, equal, true', async function(){
-        await driver.sleep(300).wait('div.search-info-content-logo > a > img', 30000)
+    it('click: div.HotNow > div.cate_prod_cont > ul.cate_prod > li:nth-child(1) > div.p_cont > div.p_img > a:nth-child(1) > img, 126, 59, 0', async function(){
+        await driver.sleep(300).wait('div.HotNow > div.cate_prod_cont > ul.cate_prod > li:nth-child(1) > div.p_cont > div.p_img > a:nth-child(1) > img', 30000)
+               .sleep(300).mouseMove(126, 59).click(0);
+    });
+
+    it('switchWindow: 2', async function(){
+        await driver.sleep(500).switchWindow(2);
+    });
+
+    it('waitBody: ', async function(){
+        await driver.sleep(500).wait('body', 30000).html().then(function(code){
+            isPageError(code).should.be.false;
+        });
+    });
+
+    it('expect: displayed, div.ProductMainMixture > div:nth-child(5), equal, true', async function(){
+        await driver.sleep(300).wait('div.ProductMainMixture > div:nth-child(5)', 30000)
             .displayed()
             .should.not.be.a('error')
             .should.equal(_(true));

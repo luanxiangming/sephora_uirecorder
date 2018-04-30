@@ -21,8 +21,15 @@ module.exports = function(){
         testVars = self.testVars;
     });
 
-    it('url: {{url}}', async function(){
-        await driver.url(_(`{{url}}`));
+    callSpec('commons/pdp_logIn.mod.js');
+
+    it('switchWindow: 2', async function(){
+        await driver.sleep(500).switchWindow(2);
+    });
+
+    it('click: 加入购物车 ( div.addCartButton > p:nth-child(1), 75, 14, 0 )', async function(){
+        await driver.sleep(300).wait('div.addCartButton > p:nth-child(1)', 30000)
+               .sleep(300).mouseMove(75, 14).click(0);
     });
 
     it('waitBody: ', async function(){
@@ -31,20 +38,15 @@ module.exports = function(){
         });
     });
 
-    it('expect: displayed, div.center > a:nth-child(1) > img, equal, true', async function(){
-        await driver.sleep(300).wait('div.center > a:nth-child(1) > img', 30000)
-            .displayed()
+    it('expect: text, div > p:nth-child(2), equal, 已成功加入购物车', async function(){
+        await driver.sleep(300).wait('div > p:nth-child(2)', 30000)
+            .text()
             .should.not.be.a('error')
-            .should.equal(_(true));
+            .should.equal(_(`已成功加入购物车`));
     });
 
-    it('click: div.closeButton, 18, 10, 0', async function(){
-        await driver.sleep(300).wait('div.closeButton', 30000)
-               .sleep(300).mouseMove(18, 10).click(0);
-    });
-
-    it('expect: displayed, div.search-info-content-logo > a > img, equal, true', async function(){
-        await driver.sleep(300).wait('div.search-info-content-logo > a > img', 30000)
+    it('expect: displayed, div.addToCartButton, equal, true', async function(){
+        await driver.sleep(300).wait('div.addToCartButton', 30000)
             .displayed()
             .should.not.be.a('error')
             .should.equal(_(true));

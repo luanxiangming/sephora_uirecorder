@@ -21,8 +21,27 @@ module.exports = function(){
         testVars = self.testVars;
     });
 
-    it('url: {{url}}', async function(){
-        await driver.url(_(`{{url}}`));
+    callSpec('commons/confirmProduct.mod.js');
+
+    it('switchWindow: 2', async function(){
+        await driver.sleep(500).switchWindow(2);
+    });
+
+    it('scrollTo: 0, 390', async function(){
+        await driver.scrollTo(0, 390);
+    });
+
+    it('scrollTo: 0, 0', async function(){
+        await driver.scrollTo(0, 0);
+    });
+
+    it('scrollTo: 0, 2', async function(){
+        await driver.scrollTo(0, 2);
+    });
+
+    it('click: 去购物车结算 ( div.addToCartButton, 74, 13, 0 )', async function(){
+        await driver.sleep(300).wait('div.addToCartButton', 30000)
+               .sleep(300).mouseMove(74, 13).click(0);
     });
 
     it('waitBody: ', async function(){
@@ -31,23 +50,24 @@ module.exports = function(){
         });
     });
 
-    it('expect: displayed, div.center > a:nth-child(1) > img, equal, true', async function(){
-        await driver.sleep(300).wait('div.center > a:nth-child(1) > img', 30000)
-            .displayed()
-            .should.not.be.a('error')
-            .should.equal(_(true));
-    });
-
-    it('click: div.closeButton, 18, 10, 0', async function(){
-        await driver.sleep(300).wait('div.closeButton', 30000)
-               .sleep(300).mouseMove(18, 10).click(0);
-    });
-
-    it('expect: displayed, div.search-info-content-logo > a > img, equal, true', async function(){
-        await driver.sleep(300).wait('div.search-info-content-logo > a > img', 30000)
-            .displayed()
-            .should.not.be.a('error')
-            .should.equal(_(true));
+    it('expect: imgdiff, div.checkoutHeader-info-content-step-first, below, 5', async function(){
+        let self = this;
+        let imgBasePath = self.diffbasePath + '/' + self.caseName + '_' + self.stepId + '.png';
+        let imgNewPath = self.screenshotPath + '/' + self.caseName + '_' + self.stepId + '_new.png';
+        let imgDiffPath = self.screenshotPath + '/' + self.caseName + '_' + self.stepId + '_diff.png';
+        let elemshot = await driver.sleep(300).getScreenshot({
+            elem: 'div.checkoutHeader-info-content-step-first',
+            filename: imgNewPath
+        });
+        elemshot = new Buffer(elemshot, 'base64');
+        if(!fs.existsSync(imgBasePath) || process.env['npm_config_rebuilddiff']){
+            fs.writeFileSync(imgBasePath, elemshot);
+        }
+        let diff = resemble(elemshot).compareTo(imgBasePath).ignoreColors();
+        let diffResult = await new Promise((resolve) => diff.onComplete(resolve));
+        diffResult.getDiffImage().pack().pipe(fs.createWriteStream(imgDiffPath));
+        diffResult.rawMisMatchPercentage
+            .should.below(5);
     });
 
     function _(str){

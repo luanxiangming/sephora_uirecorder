@@ -21,8 +21,15 @@ module.exports = function(){
         testVars = self.testVars;
     });
 
-    it('url: {{url}}', async function(){
-        await driver.url(_(`{{url}}`));
+    callSpec('commons/cart_step2.mod.js');
+
+    it('switchWindow: 2', async function(){
+        await driver.sleep(500).switchWindow(2);
+    });
+
+    it('click: 立即支付 ( div.checkoutSubmit-info-content-right-submit, 56, 54, 0 )', async function(){
+        await driver.sleep(300).wait('div.checkoutSubmit-info-content-right-submit', 30000)
+               .sleep(300).mouseMove(56, 54).click(0);
     });
 
     it('waitBody: ', async function(){
@@ -31,23 +38,22 @@ module.exports = function(){
         });
     });
 
-    it('expect: displayed, div.center > a:nth-child(1) > img, equal, true', async function(){
-        await driver.sleep(300).wait('div.center > a:nth-child(1) > img', 30000)
-            .displayed()
+    it('× expect: text, span.checkoutOrderState-info-content-body-message-content, equal, 您的订单已经下单成功!', async function(){
+        await driver.sleep(300).wait('span.checkoutOrderState-info-content-body-message-content', 30000)
+            .text()
             .should.not.be.a('error')
-            .should.equal(_(true));
+            .should.equal(_(`您的订单已经下单成功!`));
     });
 
-    it('click: div.closeButton, 18, 10, 0', async function(){
-        await driver.sleep(300).wait('div.closeButton', 30000)
-               .sleep(300).mouseMove(18, 10).click(0);
+    it('scrollTo: 0, 781', async function(){
+        await driver.scrollTo(0, 781);
     });
 
-    it('expect: displayed, div.search-info-content-logo > a > img, equal, true', async function(){
-        await driver.sleep(300).wait('div.search-info-content-logo > a > img', 30000)
-            .displayed()
+    it('× expect: text, a.checkoutPayWidth-info-content-body-submit, equal, 立即支付', async function(){
+        await driver.sleep(300).wait('a.checkoutPayWidth-info-content-body-submit', 30000)
+            .text()
             .should.not.be.a('error')
-            .should.equal(_(true));
+            .should.equal(_(`立即支付`));
     });
 
     function _(str){

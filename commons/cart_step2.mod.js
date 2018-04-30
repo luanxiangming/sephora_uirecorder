@@ -21,8 +21,19 @@ module.exports = function(){
         testVars = self.testVars;
     });
 
-    it('url: {{url}}', async function(){
-        await driver.url(_(`{{url}}`));
+    callSpec('commons/cart_step1.mod.js');
+
+    it('switchWindow: 2', async function(){
+        await driver.sleep(500).switchWindow(2);
+    });
+
+    it('scrollTo: 0, 398', async function(){
+        await driver.scrollTo(0, 398);
+    });
+
+    it('click: 立即结算 ( div.checkoutSubmit-info-content-right-submit, 71, 38, 0 )', async function(){
+        await driver.sleep(300).wait('div.checkoutSubmit-info-content-right-submit', 30000)
+               .sleep(300).mouseMove(71, 38).click(0);
     });
 
     it('waitBody: ', async function(){
@@ -31,20 +42,19 @@ module.exports = function(){
         });
     });
 
-    it('expect: displayed, div.center > a:nth-child(1) > img, equal, true', async function(){
-        await driver.sleep(300).wait('div.center > a:nth-child(1) > img', 30000)
+    it('expect: displayed, div.checkoutHeader-info-content-step-second > em.sprite-checkout-header-step, equal, true', async function(){
+        await driver.sleep(300).wait('div.checkoutHeader-info-content-step-second > em.sprite-checkout-header-step', 30000)
             .displayed()
             .should.not.be.a('error')
             .should.equal(_(true));
     });
 
-    it('click: div.closeButton, 18, 10, 0', async function(){
-        await driver.sleep(300).wait('div.closeButton', 30000)
-               .sleep(300).mouseMove(18, 10).click(0);
+    it('scrollTo: 0, 876', async function(){
+        await driver.scrollTo(0, 876);
     });
 
-    it('expect: displayed, div.search-info-content-logo > a > img, equal, true', async function(){
-        await driver.sleep(300).wait('div.search-info-content-logo > a > img', 30000)
+    it('expect: displayed, div.checkoutSubmit-info-content-right-submit, equal, true', async function(){
+        await driver.sleep(300).wait('div.checkoutSubmit-info-content-right-submit', 30000)
             .displayed()
             .should.not.be.a('error')
             .should.equal(_(true));
