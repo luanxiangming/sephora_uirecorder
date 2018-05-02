@@ -15,10 +15,11 @@ brand/product_quickview  |   首页-全部品牌页-品牌(ALGENIST/奥杰尼)�
 home/navigation | 依次悬停首页全部商品类目
 myAccount/profile | 首页-登陆-我的丝芙兰-我的订单-我的优惠券
 myAccount/profile_edit | 首页-登陆-我的丝芙兰-编辑个人资料-修改昵称-保存-首页
+miniCart/pre_login | 首页-悬停迷你购物车-检查登陆按钮-检查0件商品
+miniCart/post_login | 首页-登陆-检查迷你购物车显示-检查商品图片名称，规格，价格，件数显示-点击商品名称跳转PDP页面
 pdp/add_cart | 首页-分类页(护肤)-PDP页面-加购物车-登陆-PDP页面
 pdp/basic | 首页-分类页(护肤)-PDP页面-依次点击缩略图看大图-验证名称-验证描述-验证简介-验证价格
 pdp/policies | 首页-分类页(护肤)-PDP页面-点击配送信息-图片对比验证支付及配送-图片对比验证价格声明-图片对比验证退换货规定
-miniCart/before_login | 首页-悬停迷你购物车-检查登陆按钮-检查0件商品
 exclusive | 首页-独家发售
 gift_set | 首页-礼物套装
 
