@@ -6,6 +6,8 @@ commons/closer.mod.js | 关闭首页活动banner后停在首页
 commons/login.mod.js |  首页-登陆界面
 commons/home.mod.js |  (手机号)登陆后停在首页
 commons/guest.mod.js |  打开首页进行断言
+commons/register.mod.js | 首页-注册页面
+commons/register_email.mod.js | 首页-注册页面-使用邮箱注册
 commons/profile.mod.js | 登陆后-我的丝芙兰
 commons/cart.mod.js | 登陆-悬停迷你购物车-点击去购物车-购物车页面
 commons/category.mod.js | 首页-分类页(护肤), 不含登陆
