@@ -21,6 +21,8 @@ module.exports = function(){
         testVars = self.testVars;
     });
 
+    // callSpec('commons/closer.mod.js');
+
     it('url: {{url}}', async function(){
         await driver.url(_(`{{url}}`));
     });
@@ -31,16 +33,52 @@ module.exports = function(){
         });
     });
 
-    it('expect: displayed, canvas, equal, true', async function(){
-        await driver.sleep(300).wait('canvas', 30000)
+    it('expect: imgdiff, div.search-info-content-logo > a > img, below, 5', async function(){
+        let self = this;
+        let imgBasePath = self.diffbasePath + '/' + self.caseName + '_' + self.stepId + '.png';
+        let imgNewPath = self.screenshotPath + '/' + self.caseName + '_' + self.stepId + '_new.png';
+        let imgDiffPath = self.screenshotPath + '/' + self.caseName + '_' + self.stepId + '_diff.png';
+        let elemshot = await driver.sleep(300).getScreenshot({
+            elem: 'div.search-info-content-logo > a > img',
+            filename: imgNewPath
+        });
+        elemshot = new Buffer(elemshot, 'base64');
+        if(!fs.existsSync(imgBasePath) || process.env['npm_config_rebuilddiff']){
+            fs.writeFileSync(imgBasePath, elemshot);
+        }
+        let diff = resemble(elemshot).compareTo(imgBasePath).ignoreColors();
+        let diffResult = await new Promise((resolve) => diff.onComplete(resolve));
+        diffResult.getDiffImage().pack().pipe(fs.createWriteStream(imgDiffPath));
+        diffResult.rawMisMatchPercentage
+            .should.below(5);
+    });
+
+    it('expect: displayed, div.search-info-content-inputBox, equal, true', async function(){
+        await driver.sleep(300).wait('div.search-info-content-inputBox', 30000)
             .displayed()
             .should.not.be.a('error')
             .should.equal(_(true));
     });
 
-    it('click: canvas, 875, 169, 0', async function(){
-        await driver.sleep(300).wait('canvas', 30000)
-               .sleep(300).mouseMove(875, 169).click(0);
+    it('expect: displayed, div.search-info-content-miniCart-main, equal, true', async function(){
+        await driver.sleep(300).wait('div.search-info-content-miniCart-main', 30000)
+            .displayed()
+            .should.not.be.a('error')
+            .should.equal(_(true));
+    });
+
+    it('expect: displayed, div.top-content, equal, true', async function(){
+        await driver.sleep(300).wait('div.top-content', 30000)
+            .displayed()
+            .should.not.be.a('error')
+            .should.equal(_(true));
+    });
+
+    it('expect: displayed, div.site, equal, true', async function(){
+        await driver.sleep(300).wait('div.site', 30000)
+            .displayed()
+            .should.not.be.a('error')
+            .should.equal(_(true));
     });
 
     function _(str){

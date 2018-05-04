@@ -21,9 +21,7 @@ module.exports = function(){
         testVars = self.testVars;
     });
 
-    it('打开url: {{url}}', async function(){
-        await driver.url(_(`{{url}}`));
-    });
+    callSpec('commons/guest.mod.js');
 
     it('等待页面加载... ', async function(){
         await driver.sleep(500).wait('body', 30000).html().then(function(code){

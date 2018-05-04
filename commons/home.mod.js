@@ -21,42 +21,7 @@ module.exports = function(){
         testVars = self.testVars;
     });
 
-    callSpec('commons/center.mod.js');
-
-    it('url: {{url}}', async function(){
-        await driver.url(_(`{{url}}`));
-    });
-
-    it('waitBody: ', async function(){
-        await driver.sleep(500).wait('body', 30000).html().then(function(code){
-            isPageError(code).should.be.false;
-        });
-    });
-
-    it('expect: imgdiff, div.search-info-content-logo > a > img, below, 5', async function(){
-        let self = this;
-        let imgBasePath = self.diffbasePath + '/' + self.caseName + '_' + self.stepId + '.png';
-        let imgNewPath = self.screenshotPath + '/' + self.caseName + '_' + self.stepId + '_new.png';
-        let imgDiffPath = self.screenshotPath + '/' + self.caseName + '_' + self.stepId + '_diff.png';
-        let elemshot = await driver.sleep(300).getScreenshot({
-            elem: 'div.search-info-content-logo > a > img',
-            filename: imgNewPath
-        });
-        elemshot = new Buffer(elemshot, 'base64');
-        if(!fs.existsSync(imgBasePath) || process.env['npm_config_rebuilddiff']){
-            fs.writeFileSync(imgBasePath, elemshot);
-        }
-        let diff = resemble(elemshot).compareTo(imgBasePath).ignoreColors();
-        let diffResult = await new Promise((resolve) => diff.onComplete(resolve));
-        diffResult.getDiffImage().pack().pipe(fs.createWriteStream(imgDiffPath));
-        diffResult.rawMisMatchPercentage
-            .should.below(5);
-    });
-
-    it('click: 请登录 ( span.top-content-left > a:nth-child(2), 21, 7, 0 )', async function(){
-        await driver.sleep(300).wait('span.top-content-left > a:nth-child(2)', 30000)
-               .sleep(300).mouseMove(21, 7).click(0);
-    });
+    callSpec('commons/login.mod.js');
 
     it('waitBody: ', async function(){
         await driver.sleep(500).wait('body', 30000).html().then(function(code){
