@@ -16,10 +16,10 @@
 10. 安装GraphicsMagick(图片比对): brew install graphicsmagick
 
 
-UIRecorder PC标准入门
+UIRecorder PC使用手册
 ================
 
-https://github.com/alibaba/uirecorder/blob/master/doc/zh-cn/pc-standard.md
+https://github.com/alibaba/uirecorder/tree/master/doc/zh-cn
 
 Get more info: [http://uirecorder.com/](http://uirecorder.com/)
 
