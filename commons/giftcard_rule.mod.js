@@ -21,172 +21,55 @@ module.exports = function(){
         testVars = self.testVars;
     });
 
-    // callSpec('commons/closer.mod.js');
+    callSpec('commons/guest.mod.js');
 
-    it('打开url: {{url}}', async function(){
-        await driver.url(_(`{{url}}`));
+    it('keyDown: CTRL', async function(){
+        await driver.keyDown('CTRL');
     });
 
-    it('等待页面加载... ', async function(){
+    it('sendKeys: {DOWN}', async function(){
+        await driver.sendKeys('{DOWN}');
+    });
+
+    it('keyUp: CTRL', async function(){
+        await driver.keyUp('CTRL');
+    });
+
+    it('scrollTo: 0, 7238', async function(){
+        await driver.scrollTo(0, 7238);
+    });
+
+    it('click: 丝芙兰预付卡章程 ( li:nth-child(1) > a:nth-child(3) > span, 28, 11, 0 )', async function(){
+        await driver.sleep(300).wait('li:nth-child(1) > a:nth-child(3) > span', 30000)
+               .sleep(300).mouseMove(28, 11).click(0);
+    });
+
+    it('switchWindow: 1', async function(){
+        await driver.sleep(500).switchWindow(1);
+    });
+
+    it('waitBody: ', async function(){
         await driver.sleep(500).wait('body', 30000).html().then(function(code){
             isPageError(code).should.be.false;
         });
     });
 
-    it('断言: 首页SEPHORA logo 图片比对误差 < 5%', async function(){
-        let self = this;
-        let imgBasePath = self.diffbasePath + '/' + self.caseName + '_' + self.stepId + '.png';
-        let imgNewPath = self.screenshotPath + '/' + self.caseName + '_' + self.stepId + '_new.png';
-        let imgDiffPath = self.screenshotPath + '/' + self.caseName + '_' + self.stepId + '_diff.png';
-        let elemshot = await driver.sleep(300).getScreenshot({
-            elem: 'div.search-info-content-logo > a > img',
-            filename: imgNewPath
-        });
-        elemshot = new Buffer(elemshot, 'base64');
-        if(!fs.existsSync(imgBasePath) || process.env['npm_config_rebuilddiff']){
-            fs.writeFileSync(imgBasePath, elemshot);
-        }
-        let diff = resemble(elemshot).compareTo(imgBasePath).ignoreColors();
-        let diffResult = await new Promise((resolve) => diff.onComplete(resolve));
-        diffResult.getDiffImage().pack().pipe(fs.createWriteStream(imgDiffPath));
-        diffResult.rawMisMatchPercentage
-            .should.below(5);
-    });
-
-    it('断言：搜索栏显示', async function(){
-        await driver.sleep(300).wait('div.search-info-content-inputBox', 30000)
+    it('expect: displayed, div.aboutDetail, equal, true', async function(){
+        await driver.sleep(300).wait('div.aboutDetail', 30000)
             .displayed()
             .should.not.be.a('error')
             .should.equal(_(true));
     });
 
-    it('断言：迷你购物车显示', async function(){
-        await driver.sleep(300).wait('div.search-info-content-miniCart-main', 30000)
-            .displayed()
+    it('switchWindow: 1', async function(){
+        await driver.sleep(500).switchWindow(1);
+    });
+
+    it('expect: url, , equal, {{giftcardrule_url}}', async function(){
+        await driver
+            .url()
             .should.not.be.a('error')
-            .should.equal(_(true));
-    });
-
-    it('断言：顶部导航栏显示', async function(){
-        await driver.sleep(300).wait('div.top-content', 30000)
-            .displayed()
-            .should.not.be.a('error')
-            .should.equal(_(true));
-    });
-
-    it('断言：页面root显示', async function(){
-        await driver.sleep(300).wait('div.site', 30000)
-            .displayed()
-            .should.not.be.a('error')
-            .should.equal(_(true));
-    });
-
-    it('鼠标悬停类目：热门', async function(){
-        await driver.sleep(300).wait('li:nth-child(1) > a.title', 30000)
-               .sleep(300).mouseMove(105, 13);
-    });
-
-    it('断言：热门浮层显示', async function(){
-        await driver.sleep(300).wait('div.navigation-info-content-menu > div:nth-child(3) > div:nth-child(1) > div:nth-child(1)', 30000)
-            .displayed()
-            .should.not.be.a('error')
-            .should.equal(_(true));
-    });
-
-    it('鼠标悬停类目：功效', async function(){
-        await driver.sleep(300).wait('li:nth-child(2) > a.title', 30000)
-               .sleep(300).mouseMove(45, 14);
-    });
-
-    it('断言：功效浮层显示', async function(){
-        await driver.sleep(300).wait('div.navigation-info-content-menu > div:nth-child(3) > div:nth-child(1) > div:nth-child(1)', 30000)
-            .displayed()
-            .should.not.be.a('error')
-            .should.equal(_(true));
-    });
-
-    it('鼠标悬停类目：护肤', async function(){
-        await driver.sleep(300).wait('li:nth-child(3) > a.title', 30000)
-               .sleep(300).mouseMove(51, 20);
-    });
-
-    it('断言：护肤浮层显示', async function(){
-        await driver.sleep(300).wait('div.navigation-info-content-menu > div:nth-child(3) > div:nth-child(1) > div:nth-child(1)', 30000)
-            .displayed()
-            .should.not.be.a('error')
-            .should.equal(_(true));
-    });
-
-    it('鼠标悬停类目：彩妆', async function(){
-        await driver.sleep(300).wait('li:nth-child(4) > a.title', 30000)
-               .sleep(300).mouseMove(157, 12);
-    });
-
-    it('断言：彩妆浮层显示', async function(){
-        await driver.sleep(300).wait('div.navigation-info-content-menu > div:nth-child(3) > div:nth-child(1) > div:nth-child(1)', 30000)
-            .displayed()
-            .should.not.be.a('error')
-            .should.equal(_(true));
-    });
-
-    it('鼠标悬停类目：香水', async function(){
-        await driver.sleep(300).wait('li:nth-child(5) > a.title', 30000)
-               .sleep(300).mouseMove(132, 12);
-    });
-
-    it('断言：香水浮层显示', async function(){
-        await driver.sleep(300).wait('div.navigation-info-content-menu > div:nth-child(3) > div:nth-child(1) > div:nth-child(1)', 30000)
-            .displayed()
-            .should.not.be.a('error')
-            .should.equal(_(true));
-    });
-
-    it('鼠标悬停类目：工具', async function(){
-        await driver.sleep(300).wait('li:nth-child(6) > a.title', 30000)
-               .sleep(300).mouseMove(158, 6);
-    });
-
-    it('断言：工具浮层显示', async function(){
-        await driver.sleep(300).wait('div.navigation-info-content-menu > div:nth-child(3) > div:nth-child(1) > div:nth-child(1)', 30000)
-            .displayed()
-            .should.not.be.a('error')
-            .should.equal(_(true));
-    });
-
-    it('鼠标悬停类目：男士护肤', async function(){
-        await driver.sleep(300).wait('li:nth-child(7) > a.title', 30000)
-               .sleep(300).mouseMove(174, 13);
-    });
-
-    it('断言：男士护肤浮层显示', async function(){
-        await driver.sleep(300).wait('div.navigation-info-content-menu > div:nth-child(3) > div:nth-child(1) > div:nth-child(1)', 30000)
-            .displayed()
-            .should.not.be.a('error')
-            .should.equal(_(true));
-    });
-
-    it('鼠标悬停类目：洗浴护体', async function(){
-        await driver.sleep(300).wait('li:nth-child(8) > a.title', 30000)
-               .sleep(300).mouseMove(106, 19);
-    });
-
-    it('断言：洗浴护体浮层显示', async function(){
-        await driver.sleep(300).wait('div.navigation-info-content-menu > div:nth-child(3) > div:nth-child(1) > div:nth-child(1)', 30000)
-            .displayed()
-            .should.not.be.a('error')
-            .should.equal(_(true));
-    });
-
-    it('鼠标悬停类目：美发护发', async function(){
-        await driver.sleep(300).wait('li:nth-child(9) > a.title', 30000)
-               .sleep(300).mouseMove(114, 10);
-    });
-
-    it('断言：美发护发浮层显示', async function(){
-        await driver.sleep(300).wait('div.navigation-info-content-menu > div:nth-child(3) > div:nth-child(1) > div:nth-child(1)', 30000)
-            .displayed()
-            .should.not.be.a('error')
-            .should.equal(_(true));
+            .should.equal(_(`{{giftcardrule_url}}`));
     });
 
     function _(str){

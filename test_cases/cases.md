@@ -13,6 +13,7 @@ brand/product_filter  |   首页-全部品牌页-品牌(ALGENIST/奥杰尼)商�
 brand/product_sort  |   首页-全部品牌页-品牌(ALGENIST/奥杰尼)商品页面-综合降序-销量降序-新品降序-人气降序-价格升序-价格降序-综合降序
 brand/product_quickview  |   首页-全部品牌页-品牌(ALGENIST/奥杰尼)商品页面-鼠标悬停商品-点击“立即购买”-增加商品数量-点击“查看详情”进入商品详情页
 home/navigation | 依次悬停首页全部商品类目
+home/basic | 首页断言-依次悬停首页全部商品类目-检查各楼层-检查猜你喜欢
 myAccount/profile | 首页-登陆-我的丝芙兰-我的订单-我的优惠券
 myAccount/profile_edit | 首页-登陆-我的丝芙兰-编辑个人资料-修改昵称-保存-首页
 miniCart/pre_login | 首页-悬停迷你购物车-检查登陆按钮-检查0件商品
