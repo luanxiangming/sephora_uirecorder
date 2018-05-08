@@ -24,8 +24,11 @@ commons/cart_step2.mod.js | 首页-登陆-分类页(香水)-PDP页面-核对商�
 commons/cart_step3.mod.js | 首页-登陆-分类页(香水)-PDP页面-核对商品页面-购物车页面第一步(cart)-购物车页面第二步(checkout)-购物车页面第三步(payment)
 commons/exclusive.mod.js | 首页导航-独家发售页面
 commons/gift_set.mod.js | 首页导航-礼物套装页面
-commons/giftcard.mod.js | 首页底部-大宗采购/团购
-commons/giftcard_rule.mod.js | 首页底部-丝芙兰预付卡章程
+commons/content_giftcard.mod.js | 首页底部-大宗采购/团购
+commons/content_giftcardrule.mod.js | 首页底部-丝芙兰预付卡章程
+commons/content_cod.mod.js | 首页底部-货到付款
+commons/content_onlinepay.mod.js | 首页底部-在线支付
+commons/content_deliverytime.mod.js | 首页底部-配送时间
 commons/brand.mod.js | 首页导航-全部品牌页面
 commons/brand_product.mod.js | 首页导航-全部品牌页面-品牌(ALGENIST/奥杰尼)商品页面
 commons/brand_story.mod.js | 首页导航-全部品牌页面-品牌(ALGENIST/奥杰尼)商品页面-品牌故事
