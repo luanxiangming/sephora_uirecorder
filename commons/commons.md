@@ -29,6 +29,9 @@ commons/content_giftcardrule.mod.js | 首页底部-丝芙兰预付卡章程
 commons/content_cod.mod.js | 首页底部-货到付款
 commons/content_onlinepay.mod.js | 首页底部-在线支付
 commons/content_deliverytime.mod.js | 首页底部-配送时间
+commons/content_exchangeprescribe.mod.js | 首页底部-退换货规定
+commons/content_exchangedeliver.mod.js | 首页底部-退换及退款说明
+commons/content_contactus.mod.js | 首页底部-联系我们
 commons/brand.mod.js | 首页导航-全部品牌页面
 commons/brand_product.mod.js | 首页导航-全部品牌页面-品牌(ALGENIST/奥杰尼)商品页面
 commons/brand_story.mod.js | 首页导航-全部品牌页面-品牌(ALGENIST/奥杰尼)商品页面-品牌故事
