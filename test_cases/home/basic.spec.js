@@ -44,7 +44,7 @@ module.exports = function(){
         await driver.scrollTo(0, 1552);
     });
 
-    it('断言：护肤品类楼层 图片比对误差 < 5%', async function(){
+    it('断言：护肤品类楼层 图片比对误差 < {{imgdiff}}', async function(){
         let self = this;
         let imgBasePath = self.diffbasePath + '/' + self.caseName + '_' + self.stepId + '.png';
         let imgNewPath = self.screenshotPath + '/' + self.caseName + '_' + self.stepId + '_new.png';
@@ -61,7 +61,7 @@ module.exports = function(){
         let diffResult = await new Promise((resolve) => diff.onComplete(resolve));
         diffResult.getDiffImage().pack().pipe(fs.createWriteStream(imgDiffPath));
         diffResult.rawMisMatchPercentage
-            .should.below(5);
+            .should.below(_('{{imgdiff}}'));
     });
 
     it('点击: 彩妆品类', async function(){
@@ -73,7 +73,7 @@ module.exports = function(){
         await driver.scrollTo(0, 2237);
     });
 
-    it('断言：彩妆品类楼层 图片比对误差 < 5%', async function(){
+    it('断言：彩妆品类楼层 图片比对误差 < {{imgdiff}}', async function(){
         let self = this;
         let imgBasePath = self.diffbasePath + '/' + self.caseName + '_' + self.stepId + '.png';
         let imgNewPath = self.screenshotPath + '/' + self.caseName + '_' + self.stepId + '_new.png';
@@ -90,7 +90,7 @@ module.exports = function(){
         let diffResult = await new Promise((resolve) => diff.onComplete(resolve));
         diffResult.getDiffImage().pack().pipe(fs.createWriteStream(imgDiffPath));
         diffResult.rawMisMatchPercentage
-            .should.below(5);
+            .should.below(_('{{imgdiff}}'));
     });
 
     it('点击: 香氛品类', async function(){
@@ -102,7 +102,7 @@ module.exports = function(){
         await driver.scrollTo(0, 2922);
     });
 
-    it('断言：香氛品类楼层 图片比对误差 < 5%', async function(){
+    it('断言：香氛品类楼层 图片比对误差 < {{imgdiff}}', async function(){
         let self = this;
         let imgBasePath = self.diffbasePath + '/' + self.caseName + '_' + self.stepId + '.png';
         let imgNewPath = self.screenshotPath + '/' + self.caseName + '_' + self.stepId + '_new.png';
@@ -119,7 +119,7 @@ module.exports = function(){
         let diffResult = await new Promise((resolve) => diff.onComplete(resolve));
         diffResult.getDiffImage().pack().pipe(fs.createWriteStream(imgDiffPath));
         diffResult.rawMisMatchPercentage
-            .should.below(5);
+            .should.below(_('{{imgdiff}}'));
     });
 
     it('点击: 工具品类', async function(){
@@ -131,7 +131,7 @@ module.exports = function(){
         await driver.scrollTo(0, 3607);
     });
 
-    it('断言：工具品类楼层 图片比对误差 < 5%', async function(){
+    it('断言：工具品类楼层 图片比对误差 < {{imgdiff}}', async function(){
         let self = this;
         let imgBasePath = self.diffbasePath + '/' + self.caseName + '_' + self.stepId + '.png';
         let imgNewPath = self.screenshotPath + '/' + self.caseName + '_' + self.stepId + '_new.png';
@@ -148,7 +148,7 @@ module.exports = function(){
         let diffResult = await new Promise((resolve) => diff.onComplete(resolve));
         diffResult.getDiffImage().pack().pipe(fs.createWriteStream(imgDiffPath));
         diffResult.rawMisMatchPercentage
-            .should.below(5);
+            .should.below(_('{{imgdiff}}'));
     });
 
     it('点击: 男士护肤', async function(){
@@ -160,7 +160,7 @@ module.exports = function(){
         await driver.scrollTo(0, 4292);
     });
 
-    it('断言：男士护肤楼层 图片比对误差 < 5%', async function(){
+    it('断言：男士护肤楼层 图片比对误差 < {{imgdiff}}', async function(){
         let self = this;
         let imgBasePath = self.diffbasePath + '/' + self.caseName + '_' + self.stepId + '.png';
         let imgNewPath = self.screenshotPath + '/' + self.caseName + '_' + self.stepId + '_new.png';
@@ -177,7 +177,7 @@ module.exports = function(){
         let diffResult = await new Promise((resolve) => diff.onComplete(resolve));
         diffResult.getDiffImage().pack().pipe(fs.createWriteStream(imgDiffPath));
         diffResult.rawMisMatchPercentage
-            .should.below(5);
+            .should.below(_('{{imgdiff}}'));
     });
 
     it('点击: 洗浴护体', async function(){
@@ -189,7 +189,7 @@ module.exports = function(){
         await driver.scrollTo(0, 4977);
     });
 
-    it('断言：洗浴护体楼层 图片比对误差 < 5%', async function(){
+    it('断言：洗浴护体楼层 图片比对误差 < {{imgdiff}}', async function(){
         let self = this;
         let imgBasePath = self.diffbasePath + '/' + self.caseName + '_' + self.stepId + '.png';
         let imgNewPath = self.screenshotPath + '/' + self.caseName + '_' + self.stepId + '_new.png';
@@ -206,7 +206,7 @@ module.exports = function(){
         let diffResult = await new Promise((resolve) => diff.onComplete(resolve));
         diffResult.getDiffImage().pack().pipe(fs.createWriteStream(imgDiffPath));
         diffResult.rawMisMatchPercentage
-            .should.below(5);
+            .should.below(_('{{imgdiff}}'));
     });
 
     it('点击: 美发护发', async function(){
@@ -218,7 +218,7 @@ module.exports = function(){
         await driver.scrollTo(0, 5662);
     });
 
-    it('断言：美发护发楼层 图片比对误差 < 5%', async function(){
+    it('断言：美发护发楼层 图片比对误差 < {{imgdiff}}', async function(){
         let self = this;
         let imgBasePath = self.diffbasePath + '/' + self.caseName + '_' + self.stepId + '.png';
         let imgNewPath = self.screenshotPath + '/' + self.caseName + '_' + self.stepId + '_new.png';
@@ -235,7 +235,7 @@ module.exports = function(){
         let diffResult = await new Promise((resolve) => diff.onComplete(resolve));
         diffResult.getDiffImage().pack().pipe(fs.createWriteStream(imgDiffPath));
         diffResult.rawMisMatchPercentage
-            .should.below(5);
+            .should.below(_('{{imgdiff}}'));
     });
 
     it('页面滚动: 0, 5702', async function(){
@@ -246,7 +246,7 @@ module.exports = function(){
         await driver.scrollTo(0, 6080);
     });
 
-    it('断言：猜你喜欢楼层 图片比对误差 < 5%', async function(){
+    it('断言：猜你喜欢楼层 图片比对误差 < {{imgdiff}}', async function(){
         let self = this;
         let imgBasePath = self.diffbasePath + '/' + self.caseName + '_' + self.stepId + '.png';
         let imgNewPath = self.screenshotPath + '/' + self.caseName + '_' + self.stepId + '_new.png';
@@ -263,7 +263,7 @@ module.exports = function(){
         let diffResult = await new Promise((resolve) => diff.onComplete(resolve));
         diffResult.getDiffImage().pack().pipe(fs.createWriteStream(imgDiffPath));
         diffResult.rawMisMatchPercentage
-            .should.below(5);
+            .should.below(_('{{imgdiff}}'));
     });
 
     function _(str){

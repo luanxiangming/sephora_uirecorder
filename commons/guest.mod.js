@@ -33,7 +33,7 @@ module.exports = function(){
         });
     });
 
-    it('断言: 首页SEPHORA logo 图片比对误差 < 5%', async function(){
+    it('断言: 首页SEPHORA logo 图片比对误差 < {{imgdiff}}', async function(){
         let self = this;
         let imgBasePath = self.diffbasePath + '/' + self.caseName + '_' + self.stepId + '.png';
         let imgNewPath = self.screenshotPath + '/' + self.caseName + '_' + self.stepId + '_new.png';
@@ -50,7 +50,7 @@ module.exports = function(){
         let diffResult = await new Promise((resolve) => diff.onComplete(resolve));
         diffResult.getDiffImage().pack().pipe(fs.createWriteStream(imgDiffPath));
         diffResult.rawMisMatchPercentage
-            .should.below(5);
+            .should.below(_('{{imgdiff}}'));
     });
 
     it('断言：搜索栏显示', async function(){

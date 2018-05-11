@@ -2,10 +2,11 @@
     "webdriver": {
         "host": "127.0.0.1",
         "port": "4444",
-        "browsers": "chrome"
+        "browsers": "safari"
     },
     "vars": {
         "url": "https://www.sephora.cn",
+        "imgdiff":"1",
         "mobile": "18616762525",
         "password": "123456",
         "nickname": "手机微博登陆",

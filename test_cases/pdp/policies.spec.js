@@ -36,7 +36,7 @@ module.exports = function(){
         await driver.scrollTo(0, 2035);
     });
 
-    it('断言：支付及配送 图片比对误差 < 5%', async function(){
+    it('断言：支付及配送 图片比对误差 < {{imgdiff}}', async function(){
         let self = this;
         let imgBasePath = self.diffbasePath + '/' + self.caseName + '_' + self.stepId + '.png';
         let imgNewPath = self.screenshotPath + '/' + self.caseName + '_' + self.stepId + '_new.png';
@@ -53,14 +53,14 @@ module.exports = function(){
         let diffResult = await new Promise((resolve) => diff.onComplete(resolve));
         diffResult.getDiffImage().pack().pipe(fs.createWriteStream(imgDiffPath));
         diffResult.rawMisMatchPercentage
-            .should.below(5);
+            .should.below(_('{{imgdiff}}'));
     });
 
     it('页面滚动至: 0, 2426', async function(){
         await driver.scrollTo(0, 2426);
     });
 
-    it('断言：价格声明 图片比对误差 < 5%', async function(){
+    it('断言：价格声明 图片比对误差 < {{imgdiff}}', async function(){
         let self = this;
         let imgBasePath = self.diffbasePath + '/' + self.caseName + '_' + self.stepId + '.png';
         let imgNewPath = self.screenshotPath + '/' + self.caseName + '_' + self.stepId + '_new.png';
@@ -77,14 +77,14 @@ module.exports = function(){
         let diffResult = await new Promise((resolve) => diff.onComplete(resolve));
         diffResult.getDiffImage().pack().pipe(fs.createWriteStream(imgDiffPath));
         diffResult.rawMisMatchPercentage
-            .should.below(5);
+            .should.below(_('{{imgdiff}}'));
     });
 
     it('页面滚动至: 0, 2719', async function(){
         await driver.scrollTo(0, 2719);
     });
 
-    it('断言：退换货规定 图片比对误差 < 5%', async function(){
+    it('断言：退换货规定 图片比对误差 < {{imgdiff}}', async function(){
         let self = this;
         let imgBasePath = self.diffbasePath + '/' + self.caseName + '_' + self.stepId + '.png';
         let imgNewPath = self.screenshotPath + '/' + self.caseName + '_' + self.stepId + '_new.png';
@@ -101,7 +101,7 @@ module.exports = function(){
         let diffResult = await new Promise((resolve) => diff.onComplete(resolve));
         diffResult.getDiffImage().pack().pipe(fs.createWriteStream(imgDiffPath));
         diffResult.rawMisMatchPercentage
-            .should.below(5);
+            .should.below(_('{{imgdiff}}'));
     });
 
     function _(str){
