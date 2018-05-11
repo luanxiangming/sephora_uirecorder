@@ -23,6 +23,16 @@ https://github.com/alibaba/uirecorder/tree/master/doc/zh-cn
 
 Get more info: [http://uirecorder.com/](http://uirecorder.com/)
 
+
+公共脚本(*.mod.js)
+================
+https://github.com/luanxiangming/sephora_uirecorder/blob/master/commons/commons.md
+
+测试脚本(*.spec.js)
+================
+https://github.com/luanxiangming/sephora_uirecorder/blob/master/test_cases/cases.md
+
+
 How to run all test cases?
 ================
 
