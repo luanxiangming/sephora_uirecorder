@@ -2,7 +2,7 @@
     "webdriver": {
         "host": "127.0.0.1",
         "port": "4444",
-        "browsers": "firefox"
+        "browsers": "chrome"
     },
     "vars": {
         "url": "https://www.sephora.cn",

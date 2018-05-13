@@ -15,6 +15,9 @@
 9. 安装homebrew: /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 10. 安装GraphicsMagick(图片比对): brew install graphicsmagick
 
+chromedriver与chrome版本对应
+================
+http://www.cnblogs.com/alisapan/p/6428695.html
 
 UIRecorder PC使用手册
 ================
