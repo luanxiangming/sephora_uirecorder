@@ -72,29 +72,29 @@ module.exports = function(){
             .should.equal(_(`magnifier-cover-transparent`));
     });
 
-    it('click: li:nth-child(4) > img, 30, 36, 0', async function(){
-        await driver.sleep(300).wait('li:nth-child(4) > img', 30000)
-               .sleep(300).mouseMove(30, 36).click(0);
-    });
+    // it('click: li:nth-child(4) > img, 30, 36, 0', async function(){
+    //     await driver.sleep(300).wait('li:nth-child(4) > img', 30000)
+    //            .sleep(300).mouseMove(30, 36).click(0);
+    // });
 
-    it('expect: attr, div.magnifier-initial > div,class, equal, magnifier-cover-transparent', async function(){
-        await driver.sleep(300).wait('div.magnifier-initial > div', 30000)
-            .attr('class')
-            .should.not.be.a('error')
-            .should.equal(_(`magnifier-cover-transparent`));
-    });
+    // it('expect: attr, div.magnifier-initial > div,class, equal, magnifier-cover-transparent', async function(){
+    //     await driver.sleep(300).wait('div.magnifier-initial > div', 30000)
+    //         .attr('class')
+    //         .should.not.be.a('error')
+    //         .should.equal(_(`magnifier-cover-transparent`));
+    // });
 
-    it('click: li:nth-child(5) > img, 29, 19, 0', async function(){
-        await driver.sleep(300).wait('li:nth-child(5) > img', 30000)
-               .sleep(300).mouseMove(29, 19).click(0);
-    });
+    // it('click: li:nth-child(5) > img, 29, 19, 0', async function(){
+    //     await driver.sleep(300).wait('li:nth-child(5) > img', 30000)
+    //            .sleep(300).mouseMove(29, 19).click(0);
+    // });
 
-    it('expect: attr, div.magnifier-initial > div,class, equal, magnifier-cover-transparent', async function(){
-        await driver.sleep(300).wait('div.magnifier-initial > div', 30000)
-            .attr('class')
-            .should.not.be.a('error')
-            .should.equal(_(`magnifier-cover-transparent`));
-    });
+    // it('expect: attr, div.magnifier-initial > div,class, equal, magnifier-cover-transparent', async function(){
+    //     await driver.sleep(300).wait('div.magnifier-initial > div', 30000)
+    //         .attr('class')
+    //         .should.not.be.a('error')
+    //         .should.equal(_(`magnifier-cover-transparent`));
+    // });
 
     it('expect: displayed, h1, equal, true', async function(){
         await driver.sleep(300).wait('h1', 30000)

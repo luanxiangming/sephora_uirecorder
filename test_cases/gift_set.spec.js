@@ -21,43 +21,17 @@ module.exports = function(){
         testVars = self.testVars;
     });
 
-    it('url: {{url}}', async function(){
-        await driver.url(_(`{{url}}`));
-    });
-
-    it('waitBody: ', async function(){
-        await driver.sleep(500).wait('body', 30000).html().then(function(code){
-            isPageError(code).should.be.false;
-        });
-    });
-
-    it('expect: displayed, ul.navigation-info-content-menu-Row, equal, true', async function(){
-        await driver.sleep(300).wait('ul.navigation-info-content-menu-Row', 30000)
-            .displayed()
-            .should.not.be.a('error')
-            .should.equal(_(true));
-    });
-
-    it('click: 礼物套装 ( ul.navigation-info-content-menu-Row > li:nth-child(3) > a, 18, 2, 0 )', async function(){
-        await driver.sleep(300).wait('ul.navigation-info-content-menu-Row > li:nth-child(3) > a', 30000)
-               .sleep(300).mouseMove(18, 2).click(0);
-    });
+    callSpec('commons/gift_set.mod.js');
 
     it('switchWindow: 1', async function(){
         await driver.sleep(500).switchWindow(1);
     });
 
-    it('waitBody: ', async function(){
-        await driver.sleep(500).wait('body', 30000).html().then(function(code){
-            isPageError(code).should.be.false;
-        });
-    });
-
-    it('expect: url, , equal, https://www.sephora.cn/gift_set.html', async function(){
+    it('expect: url, , equal, {{giftset_url}}', async function(){
         await driver
             .url()
             .should.not.be.a('error')
-            .should.equal(_(`https://www.sephora.cn/gift_set.html`));
+            .should.equal(_(`{{giftset_url}}`));
     });
 
     function _(str){

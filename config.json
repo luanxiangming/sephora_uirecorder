@@ -24,7 +24,9 @@
         "search_kw": "克丽丝汀迪奥旷野男士淡香水",
         "editProfile": "编辑个人资料",
         "giftcard_url": "https://www.sephora.cn/content/giftcard/",
-        "giftcardrule_url": "https://www.sephora.cn/content/giftcardrule/"
+        "giftcardrule_url": "https://www.sephora.cn/content/giftcardrule/",
+        "exclusive_url": "https://www.sephora.cn/exclusive_product.html",
+        "giftset_url": "https://www.sephora.cn/gift_set.html"
     },
     "recorder": {
         "pathAttrs": "",

@@ -21,43 +21,17 @@ module.exports = function(){
         testVars = self.testVars;
     });
 
-    it('url: {{url}}', async function(){
-        await driver.url(_(`{{url}}`));
-    });
-
-    it('waitBody: ', async function(){
-        await driver.sleep(500).wait('body', 30000).html().then(function(code){
-            isPageError(code).should.be.false;
-        });
-    });
-
-    it('expect: displayed, ul.navigation-info-content-menu-Row, equal, true', async function(){
-        await driver.sleep(300).wait('ul.navigation-info-content-menu-Row', 30000)
-            .displayed()
-            .should.not.be.a('error')
-            .should.equal(_(true));
-    });
-
-    it('click: 独家发售 ( ul.navigation-info-content-menu-Row > li:nth-child(2) > a, 37, 12, 0 )', async function(){
-        await driver.sleep(300).wait('ul.navigation-info-content-menu-Row > li:nth-child(2) > a', 30000)
-               .sleep(300).mouseMove(37, 12).click(0);
-    });
+    callSpec('commons/exclusive.mod.js');
 
     it('switchWindow: 1', async function(){
         await driver.sleep(500).switchWindow(1);
     });
 
-    it('waitBody: ', async function(){
-        await driver.sleep(500).wait('body', 30000).html().then(function(code){
-            isPageError(code).should.be.false;
-        });
-    });
-
-    it('expect: url, , equal, https://www.sephora.cn/exclusive_product.html', async function(){
+    it('expect: url, , equal, {{exclusive_url}}', async function(){
         await driver
             .url()
             .should.not.be.a('error')
-            .should.equal(_(`https://www.sephora.cn/exclusive_product.html`));
+            .should.equal(_(`{{exclusive_url}}`));
     });
 
     function _(str){
