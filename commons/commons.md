@@ -22,6 +22,7 @@ commons/confirmProduct.mod.js | 首页-登陆-分类页(香水)-PDP页面-核对
 commons/cart_step1.mod.js | 首页-登陆-分类页(香水)-PDP页面-核对商品页面-购物车页面第一步(cart)
 commons/cart_step2.mod.js | 首页-登陆-分类页(香水)-PDP页面-核对商品页面-购物车页面第一步(cart)-购物车页面第二步(checkout)
 commons/cart_step3.mod.js | 首页-登陆-分类页(香水)-PDP页面-核对商品页面-购物车页面第一步(cart)-购物车页面第二步(checkout)-购物车页面第三步(payment)
+commons/alipay.mod.js | 首页-登陆-分类页(香水)-PDP页面-核对商品页面-购物车页面第一步(cart)-购物车页面第二步(checkout)-购物车页面第三步(payment)-支付宝支付页面
 commons/exclusive.mod.js | 首页导航-独家发售页面
 commons/gift_set.mod.js | 首页导航-礼物套装页面
 commons/content_app.mod.js | 首页头部-手机丝芙兰

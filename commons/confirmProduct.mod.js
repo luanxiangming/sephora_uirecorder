@@ -39,7 +39,7 @@ module.exports = function(){
     });
 
     it('expect: text, div > p:nth-child(2), equal, 已成功加入购物车', async function(){
-        await driver.sleep(300).wait('div > p:nth-child(2)', 30000)
+        await driver.sleep(2000).wait('div > p:nth-child(2)', 30000)
             .text()
             .should.not.be.a('error')
             .should.equal(_(`已成功加入购物车`));

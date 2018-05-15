@@ -21,27 +21,19 @@ module.exports = function(){
         testVars = self.testVars;
     });
 
-    callSpec('commons/confirmProduct.mod.js');
+    callSpec('commons/cart_step3.mod.js');
 
     it('switchWindow: 2', async function(){
         await driver.sleep(500).switchWindow(2);
     });
 
-    it('scrollTo: 0, 390', async function(){
-        await driver.scrollTo(0, 390);
+    it('click: 立即支付 ( a.checkoutPayWidth-info-content-body-submit, 146, 31, 0 )', async function(){
+        await driver.sleep(300).wait('a.checkoutPayWidth-info-content-body-submit', 30000)
+               .sleep(300).mouseMove(146, 31).click(0);
     });
 
-    it('scrollTo: 0, 0', async function(){
-        await driver.scrollTo(0, 0);
-    });
-
-    it('scrollTo: 0, 2', async function(){
-        await driver.scrollTo(0, 2);
-    });
-
-    it('click: 去购物车结算 ( div.addToCartButton, 74, 13, 0 )', async function(){
-        await driver.sleep(300).wait('div.addToCartButton', 30000)
-               .sleep(300).mouseMove(74, 13).click(0);
+    it('switchWindow: 3', async function(){
+        await driver.sleep(500).switchWindow(3);
     });
 
     it('waitBody: ', async function(){
@@ -50,12 +42,12 @@ module.exports = function(){
         });
     });
 
-    it('switchWindow: 2', async function(){
-        await driver.sleep(500).switchWindow(2);
+    it('switchWindow: 3', async function(){
+        await driver.sleep(500).switchWindow(3);
     });
 
-    it('expect: displayed, div.checkoutHeader-info-content-step-first, equal, true', async function(){
-        await driver.sleep(300).wait('div.checkoutHeader-info-content-step-first', 30000)
+    it('expect: displayed, div.view-qrcode, equal, true', async function(){
+        await driver.sleep(300).wait('div.view-qrcode', 30000)
             .displayed()
             .should.not.be.a('error')
             .should.equal(_(true));

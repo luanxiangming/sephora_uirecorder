@@ -21,41 +21,14 @@ module.exports = function(){
         testVars = self.testVars;
     });
 
-    callSpec('commons/confirmProduct.mod.js');
+    callSpec('commons/alipay.mod.js');
 
-    it('switchWindow: 2', async function(){
-        await driver.sleep(500).switchWindow(2);
+    it('switchWindow: 3', async function(){
+        await driver.sleep(500).switchWindow(3);
     });
 
-    it('scrollTo: 0, 390', async function(){
-        await driver.scrollTo(0, 390);
-    });
-
-    it('scrollTo: 0, 0', async function(){
-        await driver.scrollTo(0, 0);
-    });
-
-    it('scrollTo: 0, 2', async function(){
-        await driver.scrollTo(0, 2);
-    });
-
-    it('click: 去购物车结算 ( div.addToCartButton, 74, 13, 0 )', async function(){
-        await driver.sleep(300).wait('div.addToCartButton', 30000)
-               .sleep(300).mouseMove(74, 13).click(0);
-    });
-
-    it('waitBody: ', async function(){
-        await driver.sleep(500).wait('body', 30000).html().then(function(code){
-            isPageError(code).should.be.false;
-        });
-    });
-
-    it('switchWindow: 2', async function(){
-        await driver.sleep(500).switchWindow(2);
-    });
-
-    it('expect: displayed, div.checkoutHeader-info-content-step-first, equal, true', async function(){
-        await driver.sleep(300).wait('div.checkoutHeader-info-content-step-first', 30000)
+    it('expect: displayed, div.orderDetail-base, equal, true', async function(){
+        await driver.sleep(300).wait('div.orderDetail-base', 30000)
             .displayed()
             .should.not.be.a('error')
             .should.equal(_(true));
