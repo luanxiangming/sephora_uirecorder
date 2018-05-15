@@ -101,13 +101,6 @@ module.exports = function(){
             .should.equal(_(`if_li`));
     });
 
-    it('expect: attr, ul.filter_if > li:nth-child(8),class, equal, if_li', async function(){
-        await driver.sleep(300).wait('ul.filter_if > li:nth-child(8)', 30000)
-            .attr('class')
-            .should.not.be.a('error')
-            .should.equal(_(`if_li`));
-    });
-
     it('click: 保湿补水 ( li:nth-child(4) > ul.filter_if > li:nth-child(1) > a > i, 39, 8, 0 )', async function(){
         await driver.sleep(300).wait('li:nth-child(4) > ul.filter_if > li:nth-child(1) > a > i', 30000)
                .sleep(300).mouseMove(39, 8).click(0);
@@ -166,20 +159,6 @@ module.exports = function(){
         await driver.sleep(500).wait('body', 30000).html().then(function(code){
             isPageError(code).should.be.false;
         });
-    });
-
-    it('expect: attr, li:nth-child(1) > a.if_li_item,class, equal, if_li_item', async function(){
-        await driver.sleep(300).wait('li:nth-child(1) > a.if_li_item', 30000)
-            .attr('class')
-            .should.not.be.a('error')
-            .should.equal(_(`if_li_item`));
-    });
-
-    it('expect: attr, li:nth-child(2) > a.if_li_item,class, equal, if_li_item', async function(){
-        await driver.sleep(300).wait('li:nth-child(2) > a.if_li_item', 30000)
-            .attr('class')
-            .should.not.be.a('error')
-            .should.equal(_(`if_li_item`));
     });
 
     function _(str){

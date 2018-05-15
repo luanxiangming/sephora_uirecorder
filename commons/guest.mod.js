@@ -87,7 +87,7 @@ module.exports = function(){
     });
 
     it('断言：热门浮层显示', async function(){
-        await driver.sleep(300).wait('div.navigation-info-content-menu > div:nth-child(3) > div:nth-child(1) > div:nth-child(1)', 30000)
+        await driver.sleep(1000).wait('div.navigation-info-content-menu > div:nth-child(3) > div:nth-child(1) > div:nth-child(1)', 30000)
             .displayed()
             .should.not.be.a('error')
             .should.equal(_(true));

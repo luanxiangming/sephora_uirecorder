@@ -27,14 +27,14 @@ module.exports = function(){
         await driver.sleep(500).switchWindow(1);
     });
 
-    it('expect: text, div.middle > p, equal, Oliver', async function(){
+    it('expect: text, div.middle > p, equal, {{nickname}}', async function(){
         await driver.sleep(300).wait('div.middle > p', 30000)
             .text()
             .should.not.be.a('error')
-            .should.equal(_(`Oliver`));
+            .should.equal(_(`{{nickname}}`));
     });
 
-    it('click: Oliver ( div.middle > p, 26, 10, 0 )', async function(){
+    it('click: {{nickname}} ( div.middle > p, 26, 10, 0 )', async function(){
         await driver.sleep(300).wait('div.middle > p', 30000)
                .sleep(300).mouseMove(26, 10).click(0);
     });
@@ -94,8 +94,8 @@ module.exports = function(){
                .sleep(300).mouseMove(153, 17).mouseMove(153, 17).mouseUp(0);
     });
 
-    it('sendKeys: Oliver', async function(){
-        await driver.sendKeys('Oliver');
+    it('sendKeys: {{nickname}}', async function(){
+        await driver.sendKeys(_(`{{nickname}}`));
     });
 
     it('scrollTo: 0, 638', async function(){
@@ -130,11 +130,11 @@ module.exports = function(){
         });
     });
 
-    it('expect: text, p, equal, Oliver', async function(){
+    it('expect: text, p, equal, {{nickname}}', async function(){
         await driver.sleep(300).wait('p', 30000)
             .text()
             .should.not.be.a('error')
-            .should.equal(_(`Oliver`));
+            .should.equal(_(`{{nickname}}`));
     });
 
     function _(str){

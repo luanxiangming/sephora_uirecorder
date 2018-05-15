@@ -87,8 +87,13 @@ module.exports = function(){
         });
     });
 
-    it('expect: displayed, div.ProductMainMixture > div:nth-child(6), equal, true', async function(){
-        await driver.sleep(300).wait('div.ProductMainMixture > div:nth-child(6)', 30000)
+
+    it('switchWindow: 2', async function(){
+        await driver.sleep(500).switchWindow(2);
+    });
+
+    it('expect: displayed, div.fourButton > div.clearFix, equal, true', async function(){
+        await driver.sleep(300).wait('div.fourButton > div.clearFix', 30000)
             .displayed()
             .should.not.be.a('error')
             .should.equal(_(true));

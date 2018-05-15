@@ -6,7 +6,7 @@
     },
     "vars": {
         "url": "https://www.sephora.cn",
-        "imgdiff": "1",
+        "imgdiff": "5",
         "mobile": "18616762525",
         "password": "123456",
         "nickname": "手机微博登陆",

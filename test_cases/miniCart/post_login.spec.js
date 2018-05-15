@@ -42,8 +42,8 @@ module.exports = function(){
             .should.equal(_(true));
     });
 
-    it('expect: displayed, div.search-info-content-miniCart-item-title > a, equal, true', async function(){
-        await driver.sleep(300).wait('div.search-info-content-miniCart-item-title > a', 30000)
+    it('expect: displayed, div.search-info-content-miniCart-item-title-nohover > a, equal, true', async function(){
+        await driver.sleep(300).wait('div.search-info-content-miniCart-item-title-nohover > a', 30000)
             .displayed()
             .should.not.be.a('error')
             .should.equal(_(true));
@@ -70,8 +70,8 @@ module.exports = function(){
             .should.equal(_(true));
     });
 
-    it('click: 雅诗兰黛沁水粉底液 S... ( div.search-info-content-miniCart-item-title > a, 60, 3, 0 )', async function(){
-        await driver.sleep(300).wait('div.search-info-content-miniCart-item-title > a', 30000)
+    it('click: 雅诗兰黛沁水粉底液 S... ( div.search-info-content-miniCart-item-title-nohover > a, 60, 3, 0 )', async function(){
+        await driver.sleep(300).wait('div.search-info-content-miniCart-item-title-nohover > a', 30000)
                .sleep(300).mouseMove(60, 3).click(0);
     });
 

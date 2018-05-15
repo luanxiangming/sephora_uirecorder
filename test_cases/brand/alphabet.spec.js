@@ -603,13 +603,6 @@ module.exports = function(){
             .should.equal(_(`changeBg`));
     });
 
-    it('expect: text, div:nth-child(24) > div.BrandTitle > span, equal, Z', async function(){
-        await driver.sleep(300).wait('div:nth-child(24) > div.BrandTitle > span', 30000)
-            .text()
-            .should.not.be.a('error')
-            .should.equal(_(`Z`));
-    });
-
     it('click: 0-9 ( div.layout > ul.alphabets > li:nth-child(27), 26, 36, 0 )', async function(){
         await driver.sleep(300).wait('div.layout > ul.alphabets > li:nth-child(27)', 30000)
                .sleep(300).mouseMove(26, 36).click(0);
