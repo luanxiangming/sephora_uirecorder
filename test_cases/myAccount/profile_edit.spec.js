@@ -27,11 +27,11 @@ module.exports = function(){
         await driver.sleep(500).switchWindow(1);
     });
 
-    it('expect: text, div.middle > p, equal, {{nickname}}', async function(){
-        await driver.sleep(300).wait('div.middle > p', 30000)
+    it('expect: text, div.middle > p, contain, {{nickname}}', async function(){
+        await driver.sleep(2000).wait('div.middle > p', 30000)
             .text()
             .should.not.be.a('error')
-            .should.equal(_(`{{nickname}}`));
+            .should.contain(_(`{{nickname}}`));
     });
 
     it('click: {{nickname}} ( div.middle > p, 26, 10, 0 )', async function(){
@@ -154,11 +154,11 @@ module.exports = function(){
         });
     });
 
-    it('expect: text, p, equal, {{nickname}}', async function(){
+    it('expect: text, p, contain, {{nickname}}', async function(){
         await driver.sleep(1000).wait('p', 30000)
             .text()
             .should.not.be.a('error')
-            .should.equal(_(`{{nickname}}`));
+            .should.contain(_(`{{nickname}}`));
     });
 
     function _(str){

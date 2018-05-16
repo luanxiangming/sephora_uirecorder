@@ -68,7 +68,7 @@ module.exports = function(){
     });
 
     it('断言：顶部导航栏显示', async function(){
-        await driver.sleep(300).wait('div.top-content', 30000)
+        await driver.sleep(1000).wait('div.top-content', 30000)
             .displayed()
             .should.not.be.a('error')
             .should.equal(_(true));

@@ -73,11 +73,11 @@ module.exports = function(){
             .should.equal(_(true));
     });
 
-    it('expect: text, span > p:nth-child(2), equal, {{nickname}}', async function(){
+    it('expect: text, span > p:nth-child(2), contain, {{nickname}}', async function(){
         await driver.sleep(300).wait('span > p:nth-child(2)', 30000)
             .text()
             .should.not.be.a('error')
-            .should.equal(_(`{{nickname}}`));
+            .should.contain(_(`{{nickname}}`));
     });
 
     function _(str){

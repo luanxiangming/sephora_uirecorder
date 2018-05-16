@@ -50,11 +50,11 @@ module.exports = function(){
         });
     });
 
-    it('expect: text, p, equal, {{nickname}}', async function(){
-        await driver.sleep(1000).wait('p', 30000)
+    it('expect: text, p, contain, {{nickname}}', async function(){
+        await driver.sleep(2000).wait('p', 30000)
             .text()
             .should.not.be.a('error')
-            .should.equal(_(`{{nickname}}`));
+            .should.contain(_(`{{nickname}}`));
     });
 
     function _(str){
