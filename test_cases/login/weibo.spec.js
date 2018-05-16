@@ -63,7 +63,7 @@ module.exports = function(){
     });
 
     it('expect: text, p, equal, {{wb_nick}}', async function(){
-        await driver.sleep(300).wait('p', 30000)
+        await driver.sleep(1000).wait('p', 30000)
             .text()
             .should.not.be.a('error')
             .should.equal(_(`{{wb_nick}}`));

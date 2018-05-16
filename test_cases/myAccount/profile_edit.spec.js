@@ -106,22 +106,46 @@ module.exports = function(){
         await driver.scrollTo(0, 893);
     });
 
-    it('click: 保存信息 ( div.save-info, 103, 10, 0 )', async function(){
+    it('switchWindow: 1', async function(){
+        await driver.sleep(500).switchWindow(1);
+    });
+
+    it('sendKeys: 手机微博登陆', async function(){
+        await driver.sendKeys('手机微博登陆');
+    });
+
+    it('scrollTo: 0, 893', async function(){
+        await driver.scrollTo(0, 893);
+    });
+
+    it('click: 保存信息 ( div.save-info, 91, 18, 0 )', async function(){
         await driver.sleep(300).wait('div.save-info', 30000)
-               .sleep(300).mouseMove(103, 10).click(0);
+               .sleep(300).mouseMove(91, 18).click(0);
     });
 
     it('acceptAlert: ', async function(){
         await driver.acceptAlert();
     });
 
+    it('keyDown: CTRL', async function(){
+        await driver.keyDown('CTRL');
+    });
+
+    it('sendKeys: {UP}', async function(){
+        await driver.sendKeys('{UP}');
+    });
+
     it('scrollTo: 0, 0', async function(){
         await driver.scrollTo(0, 0);
     });
 
-    it('click: div.search-info-content-logo > a > img, 174, 7, 0', async function(){
+    it('keyUp: CTRL', async function(){
+        await driver.keyUp('CTRL');
+    });
+
+    it('click: div.search-info-content-logo > a > img, 104, 18, 0', async function(){
         await driver.sleep(300).wait('div.search-info-content-logo > a > img', 30000)
-               .sleep(300).mouseMove(174, 7).click(0);
+               .sleep(300).mouseMove(104, 18).click(0);
     });
 
     it('waitBody: ', async function(){
@@ -131,7 +155,7 @@ module.exports = function(){
     });
 
     it('expect: text, p, equal, {{nickname}}', async function(){
-        await driver.sleep(300).wait('p', 30000)
+        await driver.sleep(1000).wait('p', 30000)
             .text()
             .should.not.be.a('error')
             .should.equal(_(`{{nickname}}`));
