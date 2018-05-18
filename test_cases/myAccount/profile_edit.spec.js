@@ -98,29 +98,17 @@ module.exports = function(){
         await driver.sendKeys(_(`{{nickname}}`));
     });
 
-    it('scrollTo: 0, 638', async function(){
-        await driver.scrollTo(0, 638);
-    });
-
-    it('scrollTo: 0, 893', async function(){
-        await driver.scrollTo(0, 893);
-    });
-
     it('switchWindow: 1', async function(){
         await driver.sleep(500).switchWindow(1);
     });
 
-    it('sendKeys: 手机微博登陆', async function(){
-        await driver.sendKeys('手机微博登陆');
+    it('scrollTo: 0, 512', async function(){
+        await driver.scrollTo(0, 512);
     });
 
-    it('scrollTo: 0, 893', async function(){
-        await driver.scrollTo(0, 893);
-    });
-
-    it('click: 保存信息 ( div.save-info, 91, 18, 0 )', async function(){
+    it('click: 保存信息 ( div.save-info, 74, 22, 0 )', async function(){
         await driver.sleep(300).wait('div.save-info', 30000)
-               .sleep(300).mouseMove(91, 18).click(0);
+               .sleep(300).mouseMove(74, 22).click(0);
     });
 
     it('acceptAlert: ', async function(){
@@ -135,17 +123,17 @@ module.exports = function(){
         await driver.sendKeys('{UP}');
     });
 
-    it('scrollTo: 0, 0', async function(){
-        await driver.scrollTo(0, 0);
-    });
-
     it('keyUp: CTRL', async function(){
         await driver.keyUp('CTRL');
     });
 
-    it('click: div.search-info-content-logo > a > img, 104, 18, 0', async function(){
+    it('scrollTo: 0, 0', async function(){
+        await driver.scrollTo(0, 0);
+    });
+
+    it('click: div.search-info-content-logo > a > img, 80, 9, 0', async function(){
         await driver.sleep(300).wait('div.search-info-content-logo > a > img', 30000)
-               .sleep(300).mouseMove(104, 18).click(0);
+               .sleep(300).mouseMove(80, 9).click(0);
     });
 
     it('waitBody: ', async function(){
@@ -155,7 +143,7 @@ module.exports = function(){
     });
 
     it('expect: text, p, contain, {{nickname}}', async function(){
-        await driver.sleep(1000).wait('p', 30000)
+        await driver.sleep(2000).wait('p', 30000)
             .text()
             .should.not.be.a('error')
             .should.contain(_(`{{nickname}}`));
